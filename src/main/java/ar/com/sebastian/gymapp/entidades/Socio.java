@@ -18,27 +18,15 @@ public class Socio extends Persona{
     private DocumentoIdentidad documentoIdentidad;
     private List<Telefono> telefonos;
     private Domicilio domicilio;
-    private List<Factura> facturas;
 
-    public Socio(int idSocio, DocumentoIdentidad documentoIdentidad, List<Telefono> telefonos, Domicilio domicilio, List<Factura> facturas, String primerNombre, String segundoNombre, String apellido, String fechaNacimiento) {
+    public Socio(int idSocio, DocumentoIdentidad documentoIdentidad, List<Telefono> telefonos, Domicilio domicilio, String primerNombre, String segundoNombre, String apellido, String fechaNacimiento) {
         super(primerNombre, segundoNombre, apellido, fechaNacimiento);
         this.idSocio = idSocio;
         this.documentoIdentidad = documentoIdentidad;
         this.telefonos = telefonos;
         this.domicilio = domicilio;
-        this.facturas = facturas;
     }
-
-    public Socio(int idSocio, String primerNombre, String segundoNombre, String apellido, String fechaNacimiento) {
-        super(primerNombre, segundoNombre, apellido, fechaNacimiento);
-        this.idSocio = idSocio;
-    }
-
-    public Socio(int idSocio, String primerNombre, String segundoNombre, String apellido) {
-        super(primerNombre, segundoNombre, apellido);
-        this.idSocio = idSocio;
-    }
-
+    
     public int getIdSocio() {
         return idSocio;
     }
@@ -70,13 +58,4 @@ public class Socio extends Persona{
     public void setDomicilio(Domicilio domicilio) {
         this.domicilio = domicilio;
     }
-
-    public List<Factura> getFacturas() {
-        return facturas;
-    }
-
-    public void setFacturas(List<Factura> facturas) {
-        this.facturas = facturas;
-    }
-    
 }

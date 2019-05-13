@@ -39,5 +39,4 @@ public class Telefono {
     public void setTipoTelefono(String tipoTelefono){
         this.tipoTelefono = tipoTelefono;
     }
-    
 }

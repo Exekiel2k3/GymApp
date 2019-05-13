@@ -6,8 +6,8 @@
 package ar.com.sebastian.gymapp.entidades;
 
 import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.time.Month;
-import java.util.Date;
 import java.util.List;
 
 /**
@@ -16,7 +16,7 @@ import java.util.List;
  */
 public class Factura {
     
-    private String fechaFactura;
+    private LocalDate fechaFactura;
     private int numeroFactura;
     private String concepto;
     private float montoTotal;
@@ -25,11 +25,11 @@ public class Factura {
     private Month mesInicial;
     private Month mesFinal;
     private Month mesAbono;
-    private Date fechaHora;
+    private LocalDateTime fechaHora;
     private String entidadBancaria;
     private List<DetalleFactura> detalleFacturas;
 
-    public Factura(String fechaFactura, int numeroFactura, String concepto, String tipoDePago, String numeroTipoPago, Month mesInicial, Month mesFinal, Month mesAbono, Date fechaHora, String entidadBancaria, List<DetalleFactura> detalleFacturas) {
+    public Factura(LocalDate fechaFactura, int numeroFactura, String concepto, String tipoDePago, String numeroTipoPago, Month mesInicial, Month mesFinal, Month mesAbono, LocalDateTime fechaHora, String entidadBancaria, List<DetalleFactura> detalleFacturas) {
         this.fechaFactura = fechaFactura;
         this.numeroFactura = numeroFactura;
         this.concepto = concepto;
@@ -44,11 +44,11 @@ public class Factura {
         this.montoTotal = calcularMontoTotal(detalleFacturas);
     }
 
-    public String getFechaFactura() {
+    public LocalDate getFechaFactura() {
         return fechaFactura;
     }
 
-    public void setFechaFactura(String fechaFactura) {
+    public void setFechaFactura(LocalDate fechaFactura) {
         this.fechaFactura = fechaFactura;
     }
 
@@ -122,11 +122,11 @@ public class Factura {
         this.mesAbono = mesAbono;
     }
 
-    public Date getFechaHora() {
+    public LocalDateTime getFechaHora() {
         return fechaHora;
     }
 
-    public void setFechaHora(Date fechaHora) {
+    public void setFechaHora(LocalDateTime fechaHora) {
         this.fechaHora = fechaHora;
     }
 
