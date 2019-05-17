@@ -13,19 +13,19 @@ import ar.com.sebastian.gymapp.entidades.DocumentoIdentidad;
  */
 public class ValidateDocumentoIdentidad extends Validator{
 
-    DocumentoIdentidad documentoIdentidad;
+    private DocumentoIdentidad documentoIdentidad;
             
     public ValidateDocumentoIdentidad(DocumentoIdentidad di){
         super();
         this.documentoIdentidad = di;
     }
 
-    private boolean validateNumero(){
-        return validateNumber("([0-9]){8}",this.documentoIdentidad.getNumero());
-    }
-
     @Override
     public boolean validate(){
         return validateNumero();
+    }
+
+    private boolean validateNumero() {
+        return validateNumber("([0-9]){8}",this.documentoIdentidad.getNumero());
     }
 }

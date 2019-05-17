@@ -14,7 +14,6 @@ public class ValidateTelefono{
     }
 
     public boolean isValidNumber(){
-        //([+(\d]{1})(([\d+() -.]){5,16})([+(\d]{1})
         return this.telefono.getNumero().matches("(([+(\\d]{1})(([\\d+() -.]){5,16})([+(\\d]{1}))");
     }
 

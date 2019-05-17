@@ -39,10 +39,42 @@ public class ValidateTelefonoTest {
      */
     @Test
     public void testEmptyNumber() {
-        System.out.println("isValidNumber");
+        System.out.println("testEmptyNumber");
         ValidateTelefono instance = vt;
         boolean result = instance.isValidNumber();
         assertFalse(result);
+    }
+    
+    @Test
+    public void numberStartWithCharacter(){
+        System.out.println("numberStartWithCharacter");
+        telefono.setNumero("e9030740");
+        ValidateTelefono instance = vt;
+        assertFalse(instance.isValidNumber());
+    }
+    
+    @Test
+    public void numberEndWithCharacter(){
+        System.out.println("numberEndWithCharacter");
+        telefono.setNumero("4903074p");
+        ValidateTelefono instance = vt;
+        assertFalse(instance.isValidNumber());
+    }
+    
+    @Test
+    public void numberMiddleWithCharacter(){
+        System.out.println("numberMiddleWithCharacter");
+        telefono.setNumero("4903ñ740");
+        ValidateTelefono instance = vt;
+        assertFalse(instance.isValidNumber());
+    }
+    
+    @Test
+    public void numberWithWrongSeparator(){
+        System.out.println("numberWithWrongSeparator");
+        telefono.setNumero("4903/0740");
+        ValidateTelefono instance = vt;
+        assertFalse(instance.isValidNumber());
     }
     
     /**
@@ -78,11 +110,14 @@ public class ValidateTelefonoTest {
     @Test
     public void testSetTiposTelefono() {
         System.out.println("setTiposTelefono");
-        ArrayList<String> tiposTelefono = null;
-        ValidateTelefono instance = null;
-        instance.setTiposTelefono(tiposTelefono);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        ArrayList<String> _tiposTelefono = new ArrayList<>();
+        _tiposTelefono.add("MOVIL");
+        _tiposTelefono.add("FAMILIAR");
+        ValidateTelefono vt1 = new ValidateTelefono(new Telefono("49030740", "MOVIL"), null);
+        vt1.setTiposTelefono(_tiposTelefono);
+        ValidateTelefono vt2 = new ValidateTelefono(new Telefono("49030740", "FAMILIAR"), null);
+        vt2.setTiposTelefono(_tiposTelefono);
+        assertTrue(vt1.isValidTypeTelephon() && vt2.isValidTypeTelephon());
     }
 
     /**
@@ -91,12 +126,16 @@ public class ValidateTelefonoTest {
     @Test
     public void testIsValidTypeTelephon() {
         System.out.println("isValidTypeTelephon");
-        ValidateTelefono instance = null;
-        boolean expResult = false;
-        boolean result = instance.isValidTypeTelephon();
-        assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        
+        ArrayList<String> _tiposTelefono = new ArrayList<>();
+        _tiposTelefono.add("MOVIL");
+        _tiposTelefono.add("FAMILIAR");
+        ValidateTelefono vt1 = new ValidateTelefono(new Telefono("49030740", "MOVIL"), _tiposTelefono);
+        vt1.setTiposTelefono(_tiposTelefono);
+               
+        boolean expResult = true;
+        boolean result = vt1.isValidTypeTelephon();
+        assertEquals(expResult, result);        
     }
     
 }

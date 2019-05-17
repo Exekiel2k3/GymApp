@@ -19,4 +19,8 @@ public abstract class Validator {
     public boolean validateNumber(String regex, String number){
         return number.matches(regex);
     }
+    
+    public boolean isEmty(String string){
+        return string.isEmpty();
+    }
 }
